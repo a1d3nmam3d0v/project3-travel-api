@@ -1,13 +1,38 @@
+
 import requests
+import os
+from pprint import pprint
+import json
 
-url = "https://api.apilayer.com/fixer/convert?to={to}&from={from}&amount={amount}"
 
-payload = {}
-headers= {
-  "apikey": "Nvqg6mTuZJzXbbxPvB04J4BuDcCMeJcA"
-}
 
-response = requests.request("GET", url, headers=headers, data = payload)
 
-status_code = response.status_code
-result = response.text
+ 
+def currency_conversion():
+
+
+    headers = {"apikey": os.environ["apiKey"]}
+
+    base=input("Enter From Currency:").upper()
+    symbols=input("Enter To currency:").upper()
+
+    response = requests.request("GET", f"https://api.apilayer.com/fixer/latest?symbols={symbols}&base={base}", headers=headers)
+
+    response_json=response.json()
+
+ 
+    if response_json['success']:
+
+        rate=response.json()['rates'][symbols]
+
+        amount=float(input("Enter the amount:"))
+
+        convertedAmount= amount * rate
+
+        print("{:.2f}".format(convertedAmount))
+
+    else:
+        print('Request unsuccessful')
+
+
+currency_conversion()
