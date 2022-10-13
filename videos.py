@@ -6,6 +6,6 @@ import requests
 
 key = os.environ.get("YOUTUBE_API_KEY")
 query = {}
-youtube_api_key = "AIzaSyDE-Mcze5lzysMagAiik1MgrGUjLGkqdxw"
+YOUTUBE_API_KEY = "AIzaSyDE-Mcze5lzysMagAiik1MgrGUjLGkqdxw"
 
-url = 'GET https://www.googleapis.com/youtube/v3/videos'
+url = "GET https://www.googleapis.com/youtube/v3/videos"
