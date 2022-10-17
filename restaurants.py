@@ -1,8 +1,9 @@
 from urllib import response
 import requests
+import os
 
 url = 'https://api.yelp.com/v3/businesses/search'
-token = 'bearer yh7Lwck6xLvgxlOXM2y21vf-ZRF2FLI71uHf49D0wQs5-t732nOCrzpZAwo-__-nZpeawllILeMHgFNP-eE1RLc1u8xHOYxDgM12iBL_pvx-m9SPDbQsbU0WIMycX3Yx'
+token = os.environ.get('yelp_token')
 headers = {'Authorization' : token}
 
 def get_restaurants(city, country):
@@ -12,13 +13,14 @@ def get_restaurants(city, country):
         response.raise_for_status()
         data = response.json()
         data = data['businesses']
+        print('data')
         return data
     except Exception as ex:
         print(ex)
         print(response.text)
         return None
     
-
+get_restaurants('saint paul', 'us')
 
 
 
