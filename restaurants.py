@@ -13,14 +13,11 @@ def get_restaurants(city, country):
         response.raise_for_status()
         data = response.json()
         data = data['businesses']
-        print('data')
         return data
     except Exception as ex:
         print(ex)
         print(response.text)
         return None
-    
-get_restaurants('saint paul', 'us')
 
 
 
