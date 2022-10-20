@@ -33,11 +33,12 @@ def get_exchange_rate(home_currency,foreign_currency):
         return api_response
 
 
+def send_latest_exchange_rate(query):
 
-def send_latest_exchange_rate(url,query_parameters):
+    header = {'apikey': key}
 
     try:
-        response = requests.get(url,query_parameters)
+        response = requests.get(url, query)
         response.raise_for_status() # raise exception for 400 or 500 errors
         response_data =response.json()
         data=extract_latest_rate_data()
@@ -49,21 +50,12 @@ def send_latest_exchange_rate(url,query_parameters):
         return None
             
        
-        
-
-
 
 def build_query_string (home_currency,foreign_currency ):
-
     #create a dictionary of query parameters for the API
+    query = {'from': home_currency, 'to': foreign_currency}
+    return query
 
-    query = {}
-
-    {
-    home_currency:'EUR',
-    foreign_currency:('JPY','GBP','USD','INR')
-
-    }
 
 
 def extract_latest_rate_data(api_response):
