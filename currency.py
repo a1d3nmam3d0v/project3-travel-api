@@ -1,6 +1,5 @@
 
-
-from msilib.schema import Error
+from distutils.log import error
 import requests
 import os
 import json
@@ -22,7 +21,7 @@ class API_Response:
 
 
 
-url='https://api.apilayer.com/fixer/latest?symbols={symbols}&base={base}'
+url='https://api.apilayer.com/fixer/latest'
 key=os.environ.get('apiKey')
 
 def get_exchange_rate(home_currency,foreign_currency):
@@ -46,8 +45,8 @@ def send_latest_exchange_rate(url,query_parameters):
 
     except Exception as e:
 
-        if Error:
-            api_error_message = ('202, 201')
+        if error:
+            api_error_message = ('SUCESS')
 
             return API_Response(None, api_error_message, None)
 
