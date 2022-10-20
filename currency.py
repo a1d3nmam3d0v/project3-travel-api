@@ -44,25 +44,20 @@ def send_latest_exchange_rate(url,query_parameters):
         return API_Response(data,None,None)
 
     except Exception as e:
-
-        if error:
-            api_error_message = ('SUCESS')
-
-            return API_Response(None, api_error_message, None)
-
-        else:
-            return API_Response(None,None, e) 
+        print(e)
+        print(response.text)
+        return None
             
        
         
 
 
 
-
-
 def build_query_string (home_currency,foreign_currency ):
 
     #create a dictionary of query parameters for the API
+
+    query = {}
 
     {
     home_currency:'EUR',
