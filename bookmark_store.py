@@ -17,5 +17,11 @@ class Bookmark(Model):
     class Meta:
         database = db
 
+db.connect()
+db.create_tables([BookmarkType, Bookmark])
 
-        
+def get_bookmarks():
+    bookmark_list = []
+    for bookmark in Bookmark.select():
+        bookmark_list.append(bookmark)
+    return bookmark_list
