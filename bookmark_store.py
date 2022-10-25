@@ -35,3 +35,8 @@ def get_bookmarks():
 def add_bookmark(type_id, name, country, city, url):
     new_bookmark = Bookmark(type_id=type_id, name=name, country=country, city=city, url=url)
     new_bookmark.save()
+
+def delete_bookmark(id):
+    rows_modified = Bookmark.delete().where(Bookmark.id == id).execute() 
+
+
