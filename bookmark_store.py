@@ -54,5 +54,6 @@ def add_type(name):
 
 def delete_bookmark(id):
     rows_modified = Bookmark.delete().where(Bookmark.id == id).execute() 
+    return rows_modified
 
 
