@@ -31,8 +31,12 @@ db.connect()
 #type2.save()
 
 def get_bookmarks():
-    bookmarks = Bookmark.select()
-    return list(bookmarks)
+    try:
+        bookmarks = Bookmark.select()
+        return list(bookmarks)
+    except Exception as ex:
+        print(ex)
+        return None
 
 def add_bookmark(type_id, name, country, city, url):
     try:
@@ -51,9 +55,22 @@ def add_type(name):
         print(ex)
         return None
 
-def delete_bookmark(id):
-    rows_modified = Bookmark.delete().where(Bookmark.id == id).execute() 
-    return rows_modified
+def delete_bookmark_by_details(type_id, name, country, city, url):
+    try:
+        rows_modified = Bookmark.delete().where((Bookmark.type_id == type_id) & (Bookmark.name == name) 
+            & (Bookmark.country == country) & (Bookmark.url == url)).execute() 
+        return rows_modified
+    except Exception as ex:
+        print(ex)
+        return None
+
+def delete_bookmark_by_id(id):
+    try:
+        rows_modified = Bookmark.delete().where(Bookmark.id == id).execute() 
+        return rows_modified
+    except Exception as ex:
+        print(ex)
+        return None
 
 
 
