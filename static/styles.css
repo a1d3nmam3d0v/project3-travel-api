@@ -11,73 +11,79 @@ html {
 
 body {
     font-size: 16px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     overflow-y: hidden;
 }
 
 header {
     text-align: center;
     padding: 2rem;
+    margin: 2rem 0;
 }
 
 h1 {
     font-family: grover, sans-serif;
     font-size: 4rem;
-    /* font-family: grover-sc, sans-serif; */
     color: #2d2dff;
 }
 
-.form-wrapper {
-    margin-top: 8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main {
+    text-align: center;
+}
+
+form {
+    width: 400px;
+    padding: 1rem 0;
+    border-radius: 1rem;
+    margin: auto;
+}
+
+fieldset {
+    background: #a9a9a954;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+fieldset:nth-child(1) {
+    margin-bottom: 1rem;
+}
+
+legend {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-variant: small-caps;
+    background-color: lavender;
+    padding: 1px 3px;
+    text-align: right;
 }
 
 label {
     color: navy;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    margin-right: 5px;
 }
 
 select {
-    width: 200px;
+    width: 80%;
     padding: 0.25rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-fieldset {
-    background: rgba(169, 169, 169, 0.556);
-    padding: 1rem;
-    border: none;
-    border-radius: 1rem;
-}
-
-input {
-    width: 230px;
+input:nth-of-type(1) {
+    width: 80%;
     padding: 0.25rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-legend {
-    font-variant: small-caps;
-    font-size: 0.9em;
-    background-color: lavender;
-    padding: 1px 3px;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
 }
 
 .search-button {
-    display: inline-block;
+    height: 40px;
     width: 100%;
-    margin-top: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.25rem;
     color: black;
-    background-color: rgba(255, 181, 255, 0.812);
+    background-color: #ffb5ffcf;
 }
 
 .search-button:hover {
     background-color: #2f71e2aa;
     color: white;
-}
-
-label {
-    display: inline;
 }
