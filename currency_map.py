@@ -1,5 +1,8 @@
+ currency_map
 import pycountry
 
+
+ main
 currency_map = [
     {
         "country": "Afghanistan",
@@ -659,7 +662,11 @@ currency_map = [
     },
     {
         "country": "Palestine",
+currency_map
         "currency_code": ""
+
+        "currency_code": null
+        main
     },
     {
         "country": "Panama",
@@ -973,6 +980,7 @@ currency_map = [
         "country": "Zimbabwe",
         "currency_code": "ZWD"
     }
+currency_map
 
 ]
 
@@ -986,3 +994,5 @@ def country_to_currency(country):
             return item['currency_code']
 
 
+]
+main

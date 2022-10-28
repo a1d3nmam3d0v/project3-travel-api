@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-image: url('pinksky.jpg');
+    background-repeat: no-reapeat;
+}
+
+body {
+    font-size: 16px;
+    overflow-y: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+h1 {
+    font-family: grover, sans-serif;
+    font-size: 4rem;
+    color: #2d2dff;
+}
+
+main {
+    text-align: center;
+}
+
+form {
+    width: 400px;
+    padding: 1rem 0;
+    border-radius: 1rem;
+    margin: auto;
+}
+
+fieldset {
+    background: #a9a9a954;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+fieldset:nth-child(1) {
+    margin-bottom: 1rem;
+}
+
+legend {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-variant: small-caps;
+    background-color: lavender;
+    padding: 1px 3px;
+    text-align: right;
+}
+
+label {
+    color: navy;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    margin-right: 5px;
+}
+
+select {
+    width: 80%;
+    padding: 0.25rem;
+}
+
+input:nth-of-type(1) {
+    width: 80%;
+    padding: 0.25rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.search-button {
+    height: 40px;
+    width: 100%;
+    border-radius: 0.25rem;
+    color: black;
+    background-color: #ffb5ffcf;
+}
+
+.search-button:hover {
+    background-color: #2f71e2aa;
+    color: white;
+}
