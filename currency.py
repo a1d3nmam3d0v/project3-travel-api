@@ -21,7 +21,7 @@ class API_Response:
 
 
 
-url='https://api.apilayer.com/fixer/latest'
+url='https://api.apilayer.com/fixer/convert'
 key=os.environ.get('apiKey')
 
 def get_exchange_rate(home_currency,foreign_currency):
@@ -33,7 +33,7 @@ def get_exchange_rate(home_currency,foreign_currency):
         return api_response
 
 
-def send_latest_exchange_rate(query):
+def send_latest_exchange_rate(headers,query):
 
     headers = {'apikey': key}
 
@@ -70,5 +70,5 @@ if __name__ =='__main__':
         response =get_exchange_rate('GBP','USD')
         print(response.data,response.user_error,response.server_error)
 
-        get_exchange_rate('23678', 'USD')
+        get_exchange_rate('230', 'USD')
         print (response.data, response.user_error, response.server_error)
