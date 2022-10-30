@@ -9,7 +9,7 @@ headers = {'Authorization' : token}
 
 def get_restaurants(city, country, result_limit):
     results = get_data(city, country, result_limit)
-    filtered_results = filter_restaurants(results)
+    filtered_results = filter_restaurants(city, country, results)
     restaurant_list = clean_up_restaurant_data(filtered_results)
     return restaurant_list
 
@@ -65,7 +65,6 @@ def clean_up_input(text):
 
 if __name__ == '__main__':
     print()
-
 
 
 
