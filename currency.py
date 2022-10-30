@@ -20,7 +20,7 @@ class API_Response:
 
 
 url='https://api.apilayer.com/fixer/convert'
-key=os.environ.get('apiKey')
+key=os.environ.get('CURRENCY_API_KEY')
 
 def get_exchange_rate(home_currency,foreign_currency):
     
@@ -28,12 +28,12 @@ def get_exchange_rate(home_currency,foreign_currency):
         query_parameters=build_query_string(home_currency, foreign_currency)
         api_response=send_latest_exchange_rate(url,query_parameters)
 
-        return api_response
+        return api_response (None)
 
 
 def send_latest_exchange_rate(headers,query):
 
-    headers = {'apikey': key}
+    headers = {'CURRENCY_API_KEY': key}
 
     try:
         response = requests.get(url, params=query, headers=headers)
@@ -45,7 +45,7 @@ def send_latest_exchange_rate(headers,query):
     except Exception as e:
         print(e)
         print(response.text)
-        return None
+        return API_Response
             
        
 
@@ -55,6 +55,7 @@ def build_query_string (home_currency,foreign_currency ):
     return query
 
 
+"""This function is to return a list of two elemenets with the exchange rate and the timestamp """
 
 def extract_latest_rate_data(api_response):
     exchange_rate_and_timestamp = []
