@@ -8,7 +8,27 @@
         <link rel="stylesheet" tyle="text/css" href="{{ url_for('static', filename='styles.css') }}" />
         <link rel="stylesheet" href="https://use.typekit.net/ojm8zao.css" />
     </head>
+
     <body>
+        <header>
+            <a href="{{ url_for('homepage') }}"><span class="home-button"> home</span></a>
+            <h1>WorldWide TravelGuide</h1>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ url_for('bookmark') }}">
+                            <span class="bookmarks-button"> book<wbr />marks</span></a
+                        >
+                    </li>
+
+                    <li>
+                        <a href="#"> <span class="about-button">about</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
         {% block content %} {% endblock %}
     </body>
 </html>
