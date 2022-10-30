@@ -1,4 +1,3 @@
-import re
 from urllib import response
 import requests
 import os
@@ -27,7 +26,7 @@ def get_data(city, country, result_limit):
     except Exception as ex:
         print(ex)
         print(response.text)
-        return None
+        return []
 
 def filter_restaurants(city, country, restaurant_data):
     city = clean_up_input(city)
@@ -65,6 +64,8 @@ def clean_up_input(text):
 
 if __name__ == '__main__':
     print()
+
+
 
 
 
