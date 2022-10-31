@@ -1,4 +1,3 @@
-from urllib import response
 import requests
 import os
 
@@ -64,8 +63,3 @@ def clean_up_input(text):
 
 if __name__ == '__main__':
     print()
-
-
-
-
-
