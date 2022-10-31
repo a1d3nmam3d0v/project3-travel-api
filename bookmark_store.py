@@ -24,11 +24,6 @@ class Bookmark(Model):
         )
 
 db.connect()
-#db.create_tables([BookmarkType, Bookmark])
-#type1 = BookmarkType(name='video')
-#type1.save()
-#type2 = BookmarkType(name='restaurant')
-#type2.save()
 
 def get_bookmarks():
     try:
@@ -71,6 +66,8 @@ def delete_bookmark_by_id(id):
     except Exception as ex:
         print(ex)
         return None
+
+
 
 
 
