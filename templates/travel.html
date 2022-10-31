@@ -4,4 +4,20 @@
     <h1>Travel API</h1>
 </header>
 
+<p>Your restaurant is {{ results.restaurant }} </p>
+<p>Your youtube video is {{ results.videoID }} </p>  <!-- todo embed video -->
+<p>The exchange rate is {{ results.exchangeRate }} </p>
+
+<form method="POST" action="save">
+    <button type="submit">SAVE</button>
+
+    <!-- Hidden form elements can be populated with the same data that is 
+    shown on the web page. When the save button is clicked, then the data 
+    in the hidden elements is sent to the server. The server will get 
+    a dictionary in requests.form with the names as keys, values as values 
+    and so will be able to save this data to the bookmark database  -->
+    <input type="hidden" name="restaurant" value="{{results.restaurant}}">
+    <input type="hidden" name="videoID" value="{{results.videoID}}">
+
+</form>
 {% endblock %}
