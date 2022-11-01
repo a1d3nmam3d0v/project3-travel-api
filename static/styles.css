@@ -6,10 +6,33 @@
 
 html {
     /* background-image: url('pinksky2.jpg'); */
-    background-image: url('pinkclouds.gif');
+    /* background-image: url('map6.svg'), url('pinksky4.jpg'); */
+    /* background-image: url('map5.svg'); */
+    /* background-image: url('cloud.png'); */
+    /* background-image: url('cloud.png'), url('airplanewindow.gif'); */
+    /* background-repeat: no-repeat; */
     background-size: cover;
+    /* background-position: center; */
     background-repeat: no-repeat;
-    background-color: #b3b3b3;
+    /* background-repeat: no-repeat; */
+    background-image: url('globe3.svg'),url('map6.svg'), url('earth2.png'), url('pinksky4.jpg');
+    /* background-image: url('map5.svg'); */
+    /* background-size: contain, cover, cover; */
+    /* background-size: auto, auto, cover; */
+    /* background-repeat: no-repeat, no-repeat, no-repeat; */
+    /* background-position: center, center, center; */
+    /* background-position-y: 50px; */
+    /* background-color: darkcyan; */
+
+    /* -webkit-background-size: cover; */
+    /* -moz-background-size: cover; */
+    /* -o-background-size: cover; */
+    /* background-position: right bottom, center; */
+    /* background-repeat: no-repeat, no-repeat; */
+
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-color: #b3b3b3; */
 }
 
 body {
@@ -19,22 +42,23 @@ body {
 }
 
 header {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
+    /* padding: 1rem; */
+    /* display: flex; */
+    /* justify-content: space-between; */
     margin-bottom: 2rem;
     width: 100%;
-    align-items: center;
+    /* align-items: center; */
     /* padding: 0 0.5rem; */
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-family: restore, sans-serif;
     color: ghostwhite;
     text-align: center;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
+    /* color: hsl(207, 98%, 83%); */
 }
 
 a {
@@ -58,6 +82,9 @@ nav ul li {
 
 main {
     text-align: center;
+    /* display: flex; */
+    /* justify-items: center; */
+    /* flex-direction: column; */
 }
 
 form {
