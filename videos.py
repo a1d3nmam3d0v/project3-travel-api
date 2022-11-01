@@ -1,41 +1,39 @@
 import os
-import json
-import pprint
-
-import requests
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from pprint import pprint
 
-# dev key is AIzaSyDE-Mcze5lzysMagAiik1MgrGUjLGkqdxw
-
-# required arguments for the build function
+# required arguments to pass to the build function
 DEVELOPER_KEY = os.environ.get("YOUTUBE_API_KEY")
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
-# creates Youtube object
-youtube = build(
-    YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY
-)
 
+def get_videos(city, country):
 
-def youtube_search(city, country):
-    # uses input from the form as the search keyword
-    destination = f"{city} {country} tour"
+    search_string = f"{city},{country} travel tour"
 
-    # search.list method is called to retrieve results
-    search_response = (
+    if not DEVELOPER_KEY:
+        return "Missing API key"
+
+    youtube = build(
+        YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY
+    )
+
+    # call search.list method to retrieve results
+    response = (
         youtube.search()
         .list(
-            q=destination,
             part="id,snippet",
-            maxResults=3,
+            q=search_string,
             type="video",
+            maxResults=3,
+            # fields="items(id(videoId), snippet(title))",
         )
         .execute()
     )
-
-    results = search_response.get("items", [])
+    
+    results = response.get("items", [])
 
     for result in results:
 
@@ -43,9 +41,9 @@ def youtube_search(city, country):
             "title": result["snippet"]["title"],
             "video_id": result["id"]["videoId"],
         }
-
+        pprint(vids)
         return vids
 
 
-# if __name__ == "__main__":
-#     youtube_search("las vegas", "united states")
+if __name__ == "__main__":
+    youtube_search("las vegas", "united states")

@@ -1,6 +1,10 @@
-from flask import Flask, redirect, render_template, request, jsonify
-import videos
-import restaurants, currency
+from flask import Flask, redirect, render_template, request, jsonify, json
+
+import videos, restaurants
+
+# from videos import youtube_search
+
+# import restaurants, currency
 
 app = Flask(__name__)
 
@@ -18,20 +22,14 @@ def get_travel_info():
     country = form_data.get("country-destination")
     city = form_data.get("city-destination")
 
-    vids = videos.youtube_search(city, country)
-    title = vids.get("title")
-    video_id = vids.get("video_id")
+    vids = videos.get_videos(city, country)
+    
+    food = restaurants.get_restaurants(city, country)
+    
+ 
 
-    return render_template(
-        "travelguide.html",
-        home=home,
-        country=country,
-        city=city,
-        vids=vids,
-        title=title,
-        video_id=video_id,
-    )
-
+    return render_template("travelguide.html", home=home, country=country, city=city, vids=vids,food=food)
+    
 
 @app.route("/about/")
 def about():
