@@ -30,20 +30,17 @@ def send_latest_exchange_rate_request(headers,query):
     try:
         response = requests.get(url, params=query, headers=headers)
 
-        # print(response.status_code)
-        if response.raise_for_status== 404: # currency not found or doesnt exist 
+        if response.status_code == 400: # currency not found or doesnt exist 
               return None, 'Currency rate not found'
         response.raise_for_status() 
         response_data =response.json()
-        return response_data
-
+        return response_data , None # return a tuple of (data, error)
     except Exception as e:
         logging.exception(e)
         return None, 'Error connecting to currency website '
 
         
-            
-       
+                  
 
 def build_query_string (home_currency, foreign_currency):
     #create a dictionary of query parameters for the API
