@@ -39,7 +39,7 @@ def build_query_string (home_currency, foreign_currency):
     return query
 
 
-"""This function is to return a list of two elemenets with the exchange rate and the timestamp """
+"""This function is to return a list of from currency , to currency and the exchange rate"""
 
 def extract_latest_rate_data(api_response):
 
