@@ -7,9 +7,10 @@ headers = {'Authorization' : token}
 
 def get_restaurants(city, country, result_limit):
     results = get_data(city, country, result_limit)
-    filtered_results = filter_restaurants(city, country, results)
-    restaurant_list = clean_up_restaurant_data(filtered_results)
-    return restaurant_list
+    restaurant_list = extract_list(results)
+    filtered_list = filter_restaurants(city, country, restaurant_list)
+    final_list = clean_up_restaurant_data(filtered_list)
+    return final_list
 
 def get_data(city, country, result_limit):
     city = clean_up_input(city)
@@ -20,25 +21,28 @@ def get_data(city, country, result_limit):
         response = requests.get(url, params=query, headers=headers)
         response.raise_for_status()
         data = response.json()
-        data = data['businesses']
         return data
     except Exception as ex:
         print(ex)
         print(response.text)
         return []
 
+def extract_list(restaurant_data):
+    restaurant_list = restaurant_data['businesses']
+    return restaurant_list
+
 def filter_restaurants(city, country, restaurant_data):
     city = clean_up_input(city)
     country = clean_up_input(country)
-    restaurant_list = []
+    filtered_list = []
 
     for restaurant in restaurant_data:
         if restaurant['location']['city'].lower() == city and restaurant['location']['country'].lower() == country:
-            restaurant_list.append(restaurant)
-            if len(restaurant_list) == 3:
+            filtered_list.append(restaurant)
+            if len(filtered_list) == 3:
                 break
 
-    return restaurant_list
+    return filtered_list
 
 def get_categories(restaurant):
     categories = []
@@ -63,8 +67,5 @@ def clean_up_input(text):
 
 if __name__ == '__main__':
     print()
-
-results = get_restaurants('minneapolis', 'us', 20)
-print(results)
 
 
