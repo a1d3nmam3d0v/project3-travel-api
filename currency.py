@@ -18,9 +18,7 @@ def get_exchange_rate(home_currency,foreign_currency):
     if entire_api_response:  
         latest_rate = extract_latest_rate_data(entire_api_response)
         return latest_rate
-    else: # the entire_api_response is None, something went wrong
-        # TODO change this return something that the caller of this function can check 
-        # to see if the request works or not before using the data  
+    else: 
         return 'Error making request'  
 
 
