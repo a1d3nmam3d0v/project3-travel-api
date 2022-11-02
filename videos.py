@@ -46,4 +46,4 @@ def get_videos(city, country):
 
 
 if __name__ == "__main__":
-    youtube_search("las vegas", "united states")
+    get_videos("las vegas", "united states")
