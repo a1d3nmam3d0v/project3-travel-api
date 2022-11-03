@@ -1,6 +1,5 @@
 import requests
 import os
-import json
 import logging
 from pprint import pprint
 
