@@ -1,8 +1,9 @@
 from flask import Flask, redirect, render_template, request, url_for
 
-import videos, restaurants, currency
-from currency_map import get_full_country_name, country_to_currency
-
+import currency
+import restaurants
+import videos
+from currency_map import country_to_currency, get_full_country_name
 
 app = Flask(__name__)
 
@@ -15,20 +16,18 @@ def homepage():
 @app.route("/travelguide", methods=["GET", "POST"])
 def get_travel_info():
     form_data = request.args
+
     home = form_data.get("country-from")
     country = form_data.get("country-destination")
     city = form_data.get("city-destination")
 
-    food = restaurants.get_restaurants(city, country, 20)
-    print("RESTAURANTS HERE")
-    print(food)
-
     home_currency = country_to_currency(get_full_country_name(home))
     destination_currency = country_to_currency(get_full_country_name(country))
 
-    vids = videos.get_videos(city, country)
-
     money = currency.get_exchange_rate(home_currency, destination_currency)
+    food = restaurants.get_restaurants(city, country, 20)
+
+    vids = videos.get_videos(city, country)
 
     return render_template(
         "travelguide.html",
@@ -47,7 +46,7 @@ def about():
 
 
 @app.route("/save", methods=["POST"])
-def save():
+def save(methods=['POST']):
     saved_item = request.form["name"]
     saved_item = request.form["url"]
     saved_item = request.form["country"]
@@ -59,6 +58,7 @@ def save():
 
 @app.route("/bookmark")
 def bookmark():
+
     return render_template("bookmarks.html")
 
 
