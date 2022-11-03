@@ -79,5 +79,3 @@ def clean_up_input(text):
 
 if __name__ == "__main__":
     print()
-
-results = get_restaurants("minneapolis", "us", 20)

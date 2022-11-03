@@ -66,13 +66,3 @@ def delete_bookmark_by_id(id):
     except Exception as ex:
         print(ex)
         return None
-
-
-
-
-
-
-
-    
-
-
