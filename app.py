@@ -15,28 +15,33 @@ def homepage():
 
 @app.route("/travelguide", methods=["GET", "POST"])
 def get_travel_info():
-    form_data = request.args
+    # From the form input that the submits
+    home_countrycode = request.args.get("country-from")
+    destination_countrycode = request.args.get("country-destination")
+    city = request.args.get("city-destination").capitalize()
+    destination_country_full_name = get_full_country_name(destination_countrycode)
+    home_country_full_name = get_full_country_name(home_countrycode)
 
-    home = form_data.get("country-from")
-    country = form_data.get("country-destination")
-    city = form_data.get("city-destination")
-
-    home_currency = country_to_currency(get_full_country_name(home))
-    destination_currency = country_to_currency(get_full_country_name(country))
-
+    # Conveting from 2 letter cc to 3 letter currency code
+    home_currency = country_to_currency(get_full_country_name(home_countrycode))
+    destination_currency = country_to_currency(
+        get_full_country_name(destination_countrycode)
+    )
+    # Calling the APIs
     money = currency.get_exchange_rate(home_currency, destination_currency)
-    food = restaurants.get_restaurants(city, country, 20)
-
-    vids = videos.get_videos(city, country)
+    food = restaurants.get_restaurants(city, destination_countrycode, 20)
+    vids = videos.get_videos(city, destination_country_full_name)
 
     return render_template(
         "travelguide.html",
-        home=home,
-        country=country,
+        home_countrycode=home_countrycode,
+        destination_country_full_name=destination_country_full_name,
+        home_country_full_name=home_country_full_name,
         city=city,
         vids=vids,
         food=food,
         money=money,
+        # fullname_country_destination=fullname_country_destination
     )
 
 
@@ -46,7 +51,7 @@ def about():
 
 
 @app.route("/save", methods=["POST"])
-def save(methods=['POST']):
+def save(methods=["POST"]):
     saved_item = request.form["name"]
     saved_item = request.form["url"]
     saved_item = request.form["country"]
@@ -64,3 +69,8 @@ def bookmark():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("error.html"), 404

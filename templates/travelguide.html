@@ -1,40 +1,40 @@
 {% extends "base.html" %} {% block content %}
 
-
 <section>
-<h2>Traveling from {{ home }} to {{ city }}, {{ country }}</h2>
+    <h2>Traveling from {{ home_country_full_name }} to {{ city }}, {{ destination_country_full_name }}</h2>
 
-<p>{{money[0] }} ----> {{money[1]}} = {{ money[2] }}</p>
+    <div class="currency_conversion">
+    <p>{{money[0] }} = {{money[1]}} = {{ money[2] }}</p>
+    </div>
 
- {% for restaurant in food %}
-<p>{{ restaurant.name }}</p>
+    {% for restaurant in food %}
+    <p>{{ restaurant.name }}</p>
+    <p><a href="{{ restaurant.url }}">Their website</a></p>
+    <p>{{ restaurant.categories }}</p>
+    <p>Rating: {{ restaurant.rating }}</p>
 
-<form method="POST" action="save">
-    <button type="submit">SAVE</button>
+    <form method="POST" action="save">
+        <button type="submit">SAVE</button>
 
-    <input type="hidden" name="type" value="2" />
-    <input type="hidden" name="name" value="{{ restaurant.name }}" />]
-    <input type="hidden" name="country" value="{{ country }}" />
-    <input type="hidden" name="city" value="{{ city }} " />
-    <input type="hidden" name="url" value="{{ restaurant.url }}" />
-</form>
+        <input type="hidden" name="type" value="2" />
+        <input type="hidden" name="name" value="{{ restaurant.name }}" />
+        <input type="hidden" name="country" value="{{ country }}" />
+        <input type="hidden" name="city" value="{{ city }} " />
+        <input type="hidden" name="url" value="{{ restaurant.url }}" />
+    </form>
 
-{% endfor %} {% for vid in vids %}
-<h3>{{ vid.title }}</h3>
-<div class="iframe-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ vid.videoId }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<form method="POST" action="save">
-    <button type="submit">SAVE</button>
-    <input type="hidden" name="type" value="2" />
-    <input type="hidden" name="name" value="{{ vid.name }}" />]
-    <input type="hidden" name="country" value="{{ country }}" />
-    <input type="hidden" name="city" value="{{ city }} " />
-    <input type="hidden" name="url" value="{{ vid.url }}" />
-</form>
-{% endfor %} 
-
-
+    {% endfor %} {% for vid in vids %}
+    <h3>{{ vid.title }}</h3>
+    <div class="iframe-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ vid.videoId }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <form method="POST" action="save">
+        <button type="submit">SAVE</button>
+        <input type="hidden" name="type" value="1" />
+        <input type="hidden" name="name" value="{{ vid.title }}" />
+        <input type="hidden" name="country" value="{{ vid.url }}" />
+    </form>
+    {% endfor %}
 </section>
 
 {% endblock %}

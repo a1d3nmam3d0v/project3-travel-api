@@ -10,15 +10,16 @@ YOUTUBE_API_VERSION = "v3"
 
 
 def get_videos(city, country):
+
     if not DEVELOPER_KEY:
         return "Missing API key"
-
-    # From the form input
+    # The search query for Youtube
     search_string = f"{city},{country} travel tour"
 
     youtube = build(
         YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=DEVELOPER_KEY
     )
+
     # Search.list method retrieves API results
     response = (
         youtube.search()
@@ -34,7 +35,7 @@ def get_videos(city, country):
 
     results = response.get("items")
     if not results:
-        return "No youtube vids"
+        return []
 
     vids = []
     for result in results:
@@ -47,7 +48,6 @@ def get_videos(city, country):
 
         vids.append(videos.copy())
 
-    print(vids)
     return vids
 
 
