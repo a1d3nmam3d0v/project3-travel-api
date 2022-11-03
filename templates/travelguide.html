@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Traveling from {{ home }} to {{ city }}, {{ country }}</h2>
+
+<p>{{money[0] }} ----> {{money[1]}} = {{ money[2] }}</p>
+
+{{ food.name }} {% for restaurant in food %}
+<p>{{ restaurant.name }}</p>
+
+<form method="POST" action="save">
+    <button type="submit">SAVE</button>
+
+    <input type="hidden" name="name" value="{{ restaurant.name }}" />]
+    <input type="hidden" name="url" value="{{ restaurant.url }}" />
+    <input type="hidden" name="type" value="2" />
+    <input type="hidden" name="country" value="{{ country }}" />
+    <input type="hidden" name="city" value="{{ city }} " />
+</form>
+
+{% endfor %} {% for vid in vids %}
+<h3>{{ vid.title }}</h3>
+<div class="iframe-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ vid.videoId }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+{% endfor %} {% endblock %}

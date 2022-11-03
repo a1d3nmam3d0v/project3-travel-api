@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 import pycountry
 
 currency_map = [
@@ -659,7 +660,7 @@ currency_map = [
     },
     {
         "country": "Palestine",
-        "currency_code": null
+        "currency_code": nullcontext
     },
     {
         "country": "Panama",
@@ -986,6 +987,5 @@ def country_to_currency(country):
 
 if __name__ == '__main__':
     print()
-
-
-
+    
+    

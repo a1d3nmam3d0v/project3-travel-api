@@ -1,6 +1,7 @@
 import requests
 import os
 
+
 url = 'https://api.yelp.com/v3/businesses/search'
 token = os.environ.get('yelp_token')
 headers = {'Authorization' : token}
@@ -25,7 +26,7 @@ def get_data(city, country, result_limit):
     except Exception as ex:
         print(ex)
         print(response.text)
-        return []
+        return [] 
 
 def filter_restaurants(city, country, restaurant_data):
     city = clean_up_input(city)
@@ -56,6 +57,8 @@ def clean_up_restaurant_data(restaurant_list):
             'categories': get_categories(restaurant)
         }
         cleaned_list.append(restaurant_data)
+    print("CLEAN LIST HERE")
+    print(cleaned_list)
     return cleaned_list
     
 def clean_up_input(text):
@@ -65,6 +68,5 @@ if __name__ == '__main__':
     print()
 
 results = get_restaurants('minneapolis', 'us', 20)
-print(results)
-
-
+# print(results)
+# print(type(results))
