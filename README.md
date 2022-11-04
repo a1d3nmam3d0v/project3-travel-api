@@ -28,6 +28,6 @@ CURRENCY_API_KEY
 0cHRvLrZaYwkTfYESrMuTQZUHqbQJsgw
 
 
-yelp_token -CKA3dVhpP5PGBimljrkp8CWcPe6uS4Zw
+yelp_token -
 Bearer pPhZNMmQwE7WJR5-Nz7OpVrHljVxT8cHzu9iDNH81cXq9-1J2iFLkFn145MXbaxyw8rz7Qbi6pZFYNrWwGKMw6bPfFOLnSDeUdHDppRpcKnfMP2Zm2O7XtzBr41hY3Yx
 
