@@ -1,7 +1,7 @@
 # project3-travel-api
 
 
-This is travel app build with Python and FLask that uses the Yelp, Youtube, and Fixer APIs.
+This is travel app built with Python and FLask that uses the Yelp, Youtube, and Fixer APIs.
 The user inputs their current location (country), and the destination (city, country) that they want to go.
 
 
