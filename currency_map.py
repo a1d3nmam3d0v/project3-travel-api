@@ -267,3 +267,5 @@ def country_to_currency(country):
 
 if __name__ == "__main__":
     print()
+
+# citation for country to currency code mapping: https://www.html-code-generator.com/html/drop-down/country-names
