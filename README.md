@@ -3,7 +3,7 @@
 
 This is travel app built with Python and Flask that uses the Yelp, Youtube, and Fixer APIs.
 The user inputs their current location (country), and the destination (city, country) that they want to go.
-
+Travel videos about the destination, top rated restaurants in the city, and the current currency rate between the 2 countries are given to the user in retun.
 
 
 ```
