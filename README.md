@@ -18,15 +18,16 @@ export FLASK_APP=app.py
 
 System Variables:
 
-YOUTUBE_API_KEY- Mcze5lzysMagAiik1MgrGUjLGkqdxw
+YOUTUBE_API_KEY - 
+Mcze5lzysMagAiik1MgrGUjLGkqdxw
 
 ```pip install --upgrade google-api-python-client```
 
-CURRENCY_API_KEY
+CURRENCY_API_KEY - 
 0cHRvLrZaYwkTfYESrMuTQZUHqbQJsgw
 
 
-yelp_token
+yelp_token -
 Bearer pPhZNMmQwE7WJR5-Nz7OpVrHljVxT8cHzu9iDNH81cXq9-1J2iFLkFn145MXbaxyw8rz7Qbi6pZFYNrWwGKMw6bPfFOLnSDeUdHDppRpcKnfMP2Zm2O7XtzBr41hY3Yx
 
 
