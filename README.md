@@ -19,7 +19,7 @@ export FLASK_APP=app.py
 System Variables:
 
 YOUTUBE_API_KEY - 
-Mcze5lzysMagAiik1MgrGUjLGkqdxw
+AIzaSyAoVGuA_XRPxKCItGeF9vvNIXiKDxrILQ4
 
 ```pip install --upgrade google-api-python-client```
 
